@@ -91,14 +91,13 @@ int main()
         }
         current = current->next;
     }
-    int goal_num = 0;
+    long goal_num = 0;
     int steps_amount = 0;
     int i = 0;
     int y = 0;
     int instructions_len = strlen(instructions);
  while (1)
-{
-   // goal_num = 0; // Reset goal_num at the start of each iteration
+ {
     for (y = 0; y < b; y++)
     {
         if (instructions[i] == 'R')
@@ -115,20 +114,21 @@ int main()
             if (heads[y]->name[2] == 'Z')
                 goal_num++;
         }
-
-        steps_amount++;
-        i++; // Move to the next instruction
-        if (i == instructions_len) // If the instruction index exceeds, loop back to start
-        {
-            i = 0;
-        }
     }
 
-    if (goal_num == b) // Check if all heads have reached the goal
+    if (goal_num == b) 
     {
         printf("Amount of headers: %d\n", b);
         printf("Amount of steps: %d\n", steps_amount);
         return 0;
     }
+    steps_amount++;
+        i++; 
+        if (i == instructions_len) 
+        {
+            i = 0;
+        }
+    goal_num = 0;
 }
+return 0;
 }
